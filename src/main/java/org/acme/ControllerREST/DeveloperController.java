@@ -5,6 +5,7 @@ import java.util.List;
 import org.acme.Models.Developer;
 import org.acme.Service.DeveloperService;
 
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
@@ -18,6 +19,7 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
 @Path("/api/developers")
+@RolesAllowed({ "User", "Admin" })
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class DeveloperController {
@@ -25,6 +27,7 @@ public class DeveloperController {
     @Inject
     DeveloperService developerService;
 
+    
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllDevelopers() {

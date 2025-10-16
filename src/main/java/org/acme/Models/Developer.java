@@ -4,6 +4,8 @@ import java.sql.Date;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Developer extends PanacheEntity{
@@ -11,6 +13,11 @@ public class Developer extends PanacheEntity{
     private Long age;
     private Date endDate;
     private Boolean fullStack;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     public Developer(){
 
     }
