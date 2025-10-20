@@ -19,13 +19,15 @@ public class Developer extends PanacheEntity{
     private User user;
 
     public Developer(){
-
+        
     }
-    public Developer(String name, Long age, Date endDate, Boolean fullStack) {
+
+    public Developer(String name, Long age, Date endDate, Boolean fullStack, User user){
         this.name = name;
         this.age = age;
         this.endDate = endDate;
         this.fullStack = fullStack;
+        this.user = user;
     }   
     public String getName() {
         return name;
@@ -50,5 +52,11 @@ public class Developer extends PanacheEntity{
     }
     public void setFullStack(Boolean fullStack) {
         this.fullStack = fullStack;
+    }
+    public User getUser() {
+        return user;
+    }
+    public void setUser(User user) {
+        this.user = user;   
     }
 }

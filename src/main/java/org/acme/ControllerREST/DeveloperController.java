@@ -2,6 +2,7 @@ package org.acme.ControllerREST;
 
 import java.util.List;
 
+import org.acme.DTO.DeveloperDTO;
 import org.acme.Models.Developer;
 import org.acme.Service.DeveloperService;
 
@@ -15,11 +16,12 @@ import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
 @Path("/api/developers")
-@RolesAllowed({ "User", "Admin" })
+@RolesAllowed({ "User" })
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class DeveloperController {
@@ -27,11 +29,18 @@ public class DeveloperController {
     @Inject
     DeveloperService developerService;
 
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/size")
+    public Response getDevelopersSize() {
+        long size = developerService.getDevelopersSize();
+        return Response.ok(size).build();
+    }
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAllDevelopers() {
-        List<Developer> developers = developerService.getAllDevelopers();
+    public Response getAllDevelopers(@QueryParam("page") int page, @QueryParam("size") int size) {
+        List<Developer> developers = developerService.getAllDevelopers(page, size);
         return Response.ok(developers).build();
     }
 
@@ -48,11 +57,11 @@ public class DeveloperController {
                             .build();
         }
     }
-
+    
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response addDeveloper(Developer developer) {
+    public Response addDeveloper(DeveloperDTO developer) {
         developerService.addDeveloper(developer);
         return Response.status(Response.Status.CREATED)
                 .entity(developer)

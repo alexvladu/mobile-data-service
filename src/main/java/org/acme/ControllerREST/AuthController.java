@@ -23,13 +23,19 @@ public class AuthController {
         public String password;
     }
 
+    public class AuthResponse {
+        public String token;
+
+        public AuthResponse(String token) {
+            this.token = token;
+        }
+    }
+
     @POST
     @Path("/register")
     public Response register(AuthRequest req) {
-        authService.register(req.username, req.password, "User");
-        return Response.status(Response.Status.CREATED)
-                .entity(req.username)
-                .build();
+        String token=authService.register(req.username, req.password, "User");
+        return Response.ok(new AuthResponse(token)).build();
     }
 
     @POST

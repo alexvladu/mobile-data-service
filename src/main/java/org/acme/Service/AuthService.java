@@ -1,5 +1,9 @@
 package org.acme.Service;
 
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+import java.util.Collections;
+
 import org.acme.Models.User;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
@@ -19,9 +23,10 @@ public class AuthService {
         user.role = (role != null) ? role : "User";
         user.persist();
 
-        return Jwt.issuer("https://127.0.0.1")
+        return Jwt.issuer("data-service")
         .upn(user.username)
-        .groups(user.role)
+        .groups(Collections.singleton(user.role))
+        .expiresAt(Instant.now().plus(1, ChronoUnit.DAYS))
         .sign();
     }
 
@@ -35,9 +40,10 @@ public class AuthService {
             throw new WebApplicationException("Parolă invalidă", Response.Status.UNAUTHORIZED);
         }
 
-        return Jwt.issuer("https://127.0.0.1")
+        return Jwt.issuer("data-service")
                 .upn(user.username)
-                .groups(user.role)
+                .groups(Collections.singleton(user.role))
+                .expiresAt(Instant.now().plus(1, ChronoUnit.DAYS))
                 .sign();
     }
 }

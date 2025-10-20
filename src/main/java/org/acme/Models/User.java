@@ -2,6 +2,8 @@ package org.acme.Models;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -15,9 +17,22 @@ public class User extends PanacheEntity{
     @Column(unique = true)
     public String username;
 
+    @JsonIgnore
     public String password;
+
+    @JsonIgnore
     public String role;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    public List<Developer> developers;
+    public User(){
+
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", role='" + role + '\'' +
+                '}';
+    }
 }
