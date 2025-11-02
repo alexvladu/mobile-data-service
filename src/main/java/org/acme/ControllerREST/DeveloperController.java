@@ -3,6 +3,7 @@ package org.acme.ControllerREST;
 import java.util.List;
 
 import org.acme.DTO.DeveloperDTO;
+import org.acme.DTO.PaginatedResponse;
 import org.acme.Models.Developer;
 import org.acme.Service.DeveloperService;
 
@@ -28,20 +29,17 @@ public class DeveloperController {
 
     @Inject
     DeveloperService developerService;
-
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("/size")
-    public Response getDevelopersSize() {
-        long size = developerService.getDevelopersSize();
-        return Response.ok(size).build();
-    }
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAllDevelopers(@QueryParam("page") int page, @QueryParam("size") int size) {
-        List<Developer> developers = developerService.getAllDevelopers(page, size);
-        return Response.ok(developers).build();
+    public Response getAllDevelopers(
+        @QueryParam("page") int page,
+        @QueryParam("size") int size,
+        @QueryParam("name") String name,
+        @QueryParam("fullStack") Boolean fullStack) {
+        List<Developer> developers = developerService.getAllDevelopers(page, size, name, fullStack);
+        PaginatedResponse<Developer> paginatedResponse = new PaginatedResponse<>(developers, developerService.getSizeDevelopers(page, size, name, fullStack));
+        return Response.ok(paginatedResponse).build();
     }
 
     @GET

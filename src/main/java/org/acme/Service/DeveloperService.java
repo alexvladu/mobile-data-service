@@ -1,5 +1,6 @@
 package org.acme.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.acme.DTO.DeveloperDTO;
@@ -40,18 +41,49 @@ public class DeveloperService {
 
 
     @Transactional
-    public long getDevelopersSize() {
+    public long getSizeDevelopers(int page, int size, String name, Boolean fullStack) {
         User user = userService.findByUsername(jwt.getName());
-        return developerRepository.find("user.id = ?1", Sort.by("id"), user.id).count();
+        String query = "user.id = ?1";
+        List<Object> params = new ArrayList<>();
+        params.add(user.id);
+
+        int idx = 2;
+        if (name != null && !name.isBlank()) {
+            query += " and lower(name) like ?" + idx++;
+            params.add("%" + name.toLowerCase() + "%");
+        }
+        if (fullStack != null) {
+            query += " and fullStack = ?" + idx++;
+            params.add(fullStack);
+        }
+
+        return developerRepository
+                .find(query, Sort.by("id"), params.toArray())
+                .page(Page.of(page, size))
+                .count();
     }
 
     @Transactional
-    public List<Developer> getAllDevelopers(int page, int size) {
+    public List<Developer> getAllDevelopers(int page, int size, String name, Boolean fullStack) {
         User user = userService.findByUsername(jwt.getName());
+        String query = "user.id = ?1";
+        List<Object> params = new ArrayList<>();
+        params.add(user.id);
+
+        int idx = 2;
+        if (name != null && !name.isBlank()) {
+            query += " and lower(name) like ?" + idx++;
+            params.add("%" + name.toLowerCase() + "%");
+        }
+        if (fullStack != null) {
+            query += " and fullStack = ?" + idx++;
+            params.add(fullStack);
+        }
+
         return developerRepository
-            .find("user.id = ?1", Sort.by("id"), user.id)
-            .page(Page.of(page, size))
-            .list();
+                .find(query, Sort.by("id"), params.toArray())
+                .page(Page.of(page, size))
+                .list();
     }
 
     @Transactional
