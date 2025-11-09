@@ -3,9 +3,13 @@ package org.acme.ControllerREST;
 import java.util.List;
 
 import org.acme.DTO.DeveloperDTO;
+import org.acme.DTO.DeveloperUpdateDTO;
 import org.acme.DTO.PaginatedResponse;
 import org.acme.Models.Developer;
+import org.acme.Multiparts.MultiPartAvatar;
 import org.acme.Service.DeveloperService;
+import org.acme.Service.FileService;
+import org.jboss.resteasy.reactive.MultipartForm;
 
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
@@ -29,6 +33,25 @@ public class DeveloperController {
 
     @Inject
     DeveloperService developerService;
+
+    @Inject 
+    FileService fileService;
+
+    @POST
+    @Path("/{id}/avatar")
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response uploadAvatar(@MultipartForm MultiPartAvatar data, @PathParam("id") Long id) {
+        try {
+            developerService.saveAvatar(data.avatar, id);
+            return Response.ok("Received").build();
+        }
+        catch (Exception e) {
+            return Response.status(Response.Status.NOT_FOUND)
+                    .entity("{\"error\": \"" + e.getMessage() + "\"}")
+                    .build();
+        }
+    }
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -70,7 +93,7 @@ public class DeveloperController {
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateDeveloper(@PathParam("id") Long id, Developer updatedDeveloper) {
+    public Response updateDeveloper(@PathParam("id") Long id, DeveloperUpdateDTO updatedDeveloper) {
         try {
             Developer developer = developerService.updateDeveloper(id, updatedDeveloper);
             return Response.ok(developer).build();

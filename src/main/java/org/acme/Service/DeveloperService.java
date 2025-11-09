@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.acme.DTO.DeveloperDTO;
+import org.acme.DTO.DeveloperUpdateDTO;
 import org.acme.Models.Developer;
 import org.acme.Models.User;
 import org.acme.Repository.DeveloperRepository;
 import org.eclipse.microprofile.jwt.JsonWebToken;
+import org.jboss.resteasy.reactive.multipart.FileUpload;
 
 import io.quarkus.panache.common.Page;
 import io.quarkus.panache.common.Sort;
@@ -24,6 +26,9 @@ public class DeveloperService {
 
     @Inject
     UserService userService;
+
+    @Inject
+    FileService fileService;
 
     private final DeveloperRepository developerRepository;
     public DeveloperService(DeveloperRepository developerRepository){
@@ -89,12 +94,12 @@ public class DeveloperService {
     @Transactional
     public void addDeveloper(DeveloperDTO developer){
         User user = userService.findByUsername(jwt.getName());
-        Developer newDeveloper = new Developer(developer.getName(), developer.getAge(), developer.getEndDate(), developer.getFullStack(), user);
+        Developer newDeveloper = new Developer(developer.getName(), developer.getAge(), developer.getEndDate(), developer.getFullStack(), null, null, null, user);
         developerRepository.persist(newDeveloper);
     }
 
     @Transactional
-    public Developer updateDeveloper(Long id, Developer updatedDeveloper) {
+    public Developer updateDeveloper(Long id, DeveloperUpdateDTO updatedDeveloper) {
         Developer currentDeveloper = developerRepository.findById(id);
         if (currentDeveloper == null) {
             throw new RuntimeException("Developer not found with id " + id);
@@ -103,6 +108,8 @@ public class DeveloperService {
         currentDeveloper.setAge(updatedDeveloper.getAge());
         currentDeveloper.setEndDate(updatedDeveloper.getEndDate());
         currentDeveloper.setFullStack(updatedDeveloper.getFullStack());
+        currentDeveloper.setLat(updatedDeveloper.getLat());
+        currentDeveloper.setLng(updatedDeveloper.getLng());
         return currentDeveloper;
     }
 
@@ -116,4 +123,11 @@ public class DeveloperService {
         return developer;
     }
 
+
+    @Transactional
+    public void saveAvatar(FileUpload file, Long id) throws Exception {
+        Developer developer = getDeveloperById(id);
+        String photoURL = fileService.processAndSaveFile(file);
+        this.developerRepository.updateURL(developer, photoURL);
+    }
 }

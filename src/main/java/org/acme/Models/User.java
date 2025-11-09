@@ -1,14 +1,10 @@
 package org.acme.Models;
 
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -23,6 +19,9 @@ public class User extends PanacheEntity{
     @JsonIgnore
     public String role;
 
+    @JsonIgnore
+    public String photoURL;
+
     public User(){
 
     }
@@ -33,6 +32,7 @@ public class User extends PanacheEntity{
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", role='" + role + '\'' +
+                ", photoURL='" + photoURL + '\'' +
                 '}';
     }
 }
