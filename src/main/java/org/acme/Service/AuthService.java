@@ -15,6 +15,7 @@ import jakarta.ws.rs.core.Response;
 
 @ApplicationScoped
 public class AuthService {
+    
     @Transactional
     public String register(String username, String password, String role) {
         User user = new User();

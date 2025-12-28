@@ -9,6 +9,7 @@ import org.acme.Models.Developer;
 import org.acme.Multiparts.MultiPartAvatar;
 import org.acme.Service.DeveloperService;
 import org.acme.Service.FileService;
+import org.jboss.logging.Logger;
 import org.jboss.resteasy.reactive.MultipartForm;
 
 import jakarta.annotation.security.RolesAllowed;
@@ -37,18 +38,23 @@ public class DeveloperController {
     @Inject 
     FileService fileService;
 
+    private static final Logger LOG = Logger.getLogger(DeveloperController.class);
+
     @POST
     @Path("/{id}/avatar")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
     public Response uploadAvatar(@MultipartForm MultiPartAvatar data, @PathParam("id") Long id) {
+        LOG.info("here!!!");
         try {
             developerService.saveAvatar(data.avatar, id);
-            return Response.ok("Received").build();
+            return Response.ok("{\"status\": \"success\"}").build();
         }
         catch (Exception e) {
-            return Response.status(Response.Status.NOT_FOUND)
-                    .entity("{\"error\": \"" + e.getMessage() + "\"}")
+            String errorMsg = "Error: " + e.getClass().getName() + " - " + e.getMessage();
+            e.printStackTrace();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity("{\"error\": \"" + errorMsg + "\"}")
                     .build();
         }
     }
@@ -60,6 +66,7 @@ public class DeveloperController {
         @QueryParam("size") int size,
         @QueryParam("name") String name,
         @QueryParam("fullStack") Boolean fullStack) {
+        LOG.info("Fetching developers: page=" + page + ", size=" + size + ", name=" + name + ", fullStack=" + fullStack);
         List<Developer> developers = developerService.getAllDevelopers(page, size, name, fullStack);
         PaginatedResponse<Developer> paginatedResponse = new PaginatedResponse<>(developers, developerService.getSizeDevelopers(page, size, name, fullStack));
         return Response.ok(paginatedResponse).build();
@@ -83,9 +90,9 @@ public class DeveloperController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response addDeveloper(DeveloperDTO developer) {
-        developerService.addDeveloper(developer);
+        Developer addDeveloper = developerService.addDeveloper(developer);
         return Response.status(Response.Status.CREATED)
-                .entity(developer)
+                .entity(addDeveloper)
                 .build();
     }
 

@@ -1,0 +1,180 @@
+__  ____  __  _____   ___  __ ____  ______ 
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/ 
+ -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \   
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/   
+2025-12-28 13:34:21,628 INFO  [io.und.websockets] (main) UT026003: Adding annotated server endpoint class org.acme.ControllerWebSocket.NotificationWebSocket for path /notifications
+2025-12-28 13:34:21,796 WARN  [io.qua.config] (main) The "quarkus.hibernate-orm.database.generation" config property is deprecated and should not be used anymore.
+2025-12-28 13:34:22,899 INFO  [io.quarkus] (main) data-service 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.28.2) started in 2.385s. Listening on: http://0.0.0.0:8080
+2025-12-28 13:34:22,900 INFO  [io.quarkus] (main) Profile prod activated. 
+2025-12-28 13:34:22,900 INFO  [io.quarkus] (main) Installed features: [agroal, cdi, hibernate-orm, hibernate-orm-panache, jdbc-postgresql, narayana-jta, rest, rest-jackson, security, smallrye-context-propagation, smallrye-jwt, vertx, websockets, websockets-client]
+io.undertow.websockets.UndertowSession@3f4775de
+2025-12-28 13:34:27,404 INFO  [org.acm.Con.DeveloperController] (executor-thread-1) Fetching developers: page=0, size=100, name=null, fullStack=null
+io.undertow.websockets.UndertowSession@a889f67
+2025-12-28 13:34:45,347 INFO  [org.acm.Con.DeveloperController] (executor-thread-1) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:34:53,247 INFO  [org.acm.Con.DeveloperController] (executor-thread-2) Fetching developers: page=0, size=100, name=null, fullStack=null
+Sending message to session dxgG5m0KCMMgUlrAoVGJVcTWYVw9uxUiY6fn3fp0: update
+Sending message to session OuGcKmc5UAxdsvAgn0JYt7k1s1wXHQRoAFzdUXt9: update
+2025-12-28 13:34:53,402 INFO  [org.acm.Con.DeveloperController] (executor-thread-1) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:34:53,407 INFO  [org.acm.Con.DeveloperController] (executor-thread-2) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:35:15,439 INFO  [org.acm.Con.DeveloperController] (executor-thread-2) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:35:45,545 INFO  [org.acm.Con.DeveloperController] (executor-thread-2) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:36:15,645 INFO  [org.acm.Con.DeveloperController] (executor-thread-2) Fetching developers: page=0, size=100, name=null, fullStack=null
+io.undertow.websockets.UndertowSession@31a424fa
+io.undertow.websockets.UndertowSession@4c822c88
+io.undertow.websockets.UndertowSession@5769a955
+io.undertow.websockets.UndertowSession@5bb743e7
+2025-12-28 13:36:34,441 INFO  [org.acm.Con.DeveloperController] (executor-thread-2) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:36:36,706 INFO  [org.acm.Con.DeveloperController] (executor-thread-2) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:36:37,833 INFO  [org.acm.Con.DeveloperController] (executor-thread-2) Fetching developers: page=0, size=100, name=null, fullStack=null
+io.undertow.websockets.UndertowSession@49893952
+2025-12-28 13:36:46,456 INFO  [org.acm.Con.DeveloperController] (executor-thread-2) here!!!
+2025-12-28 13:36:46,457 INFO  [org.acm.Ser.DeveloperService] (executor-thread-2) saveAvatar called for developer id: 5205
+2025-12-28 13:36:46,462 INFO  [org.acm.Ser.DeveloperService] (executor-thread-2) Developer found: test
+2025-12-28 13:36:46,463 INFO  [org.acm.Ser.FileService] (executor-thread-2) Processing file: temp_avatar_1766921804688.jpg
+2025-12-28 13:36:46,464 INFO  [org.acm.Ser.FileService] (executor-thread-2) Upload directory: /home/alex/mobile-data-service/public/
+2025-12-28 13:36:46,464 INFO  [org.acm.Ser.FileService] (executor-thread-2) Upload directory already exists: /home/alex/mobile-data-service/public/
+2025-12-28 13:36:46,464 INFO  [org.acm.Ser.FileService] (executor-thread-2) Upload directory: /home/alex/mobile-data-service/public/
+2025-12-28 13:36:46,464 INFO  [org.acm.Ser.FileService] (executor-thread-2) File path to save: /home/alex/mobile-data-service/public/4106186f-76d2-48df-80f5-457c812d290f.jpg
+2025-12-28 13:36:46,465 INFO  [org.acm.Ser.FileService] (executor-thread-2) Saving file to: /home/alex/mobile-data-service/public/4106186f-76d2-48df-80f5-457c812d290f.jpg
+2025-12-28 13:36:46,465 INFO  [org.acm.Ser.FileService] (executor-thread-2) Destination path object created: /home/alex/mobile-data-service/public/4106186f-76d2-48df-80f5-457c812d290f.jpg
+2025-12-28 13:36:46,465 INFO  [org.acm.Ser.FileService] (executor-thread-2) Uploaded file: /tmp/uploads/resteasy-reactive55148555763413303upload
+2025-12-28 13:36:46,465 INFO  [org.acm.Con.DeveloperController] (executor-thread-3) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:36:46,466 INFO  [org.acm.Ser.FileService] (executor-thread-2) File saved successfully!
+2025-12-28 13:36:46,467 INFO  [org.acm.Ser.FileService] (executor-thread-2) File exists after save: true
+2025-12-28 13:36:46,468 INFO  [org.acm.Ser.DeveloperService] (executor-thread-2) File processed, URL: 4106186f-76d2-48df-80f5-457c812d290f.jpg
+2025-12-28 13:36:46,468 INFO  [org.acm.Ser.DeveloperService] (executor-thread-2) Avatar updated successfully
+Sending message to session VkyTHKLAa_YKdJywB8ES-UODvuosct00h0RBA333: update
+Sending message to session jZLY4CVfTrEyG8WXZTi6VvXlq3AxL_TAQTuxCX9Q: update
+Sending message to session pVkiqpazLGJXk0PXmt9Xpizk7cdooMzVCuM2ZX3b: update
+2025-12-28 13:36:46,613 INFO  [org.acm.Con.DeveloperController] (executor-thread-4) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:36:46,619 INFO  [org.acm.Con.DeveloperController] (executor-thread-2) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:36:46,657 INFO  [org.acm.Con.DeveloperController] (executor-thread-2) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:36:46,659 INFO  [org.acm.Con.DeveloperController] (executor-thread-4) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:36:52,969 INFO  [org.acm.Con.DeveloperController] (executor-thread-4) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:36:56,877 INFO  [org.acm.Con.DeveloperController] (executor-thread-4) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:37:01,562 INFO  [org.acm.Con.DeveloperController] (executor-thread-4) here!!!
+2025-12-28 13:37:01,562 INFO  [org.acm.Ser.DeveloperService] (executor-thread-4) saveAvatar called for developer id: 5206
+2025-12-28 13:37:01,565 INFO  [org.acm.Ser.DeveloperService] (executor-thread-4) Developer found: diana
+2025-12-28 13:37:01,566 INFO  [org.acm.Ser.FileService] (executor-thread-4) Processing file: temp_avatar_1766921820448.jpg
+2025-12-28 13:37:01,566 INFO  [org.acm.Ser.FileService] (executor-thread-4) Upload directory: /home/alex/mobile-data-service/public/
+2025-12-28 13:37:01,566 INFO  [org.acm.Ser.FileService] (executor-thread-4) Upload directory already exists: /home/alex/mobile-data-service/public/
+2025-12-28 13:37:01,566 INFO  [org.acm.Ser.FileService] (executor-thread-4) Upload directory: /home/alex/mobile-data-service/public/
+2025-12-28 13:37:01,566 INFO  [org.acm.Ser.FileService] (executor-thread-4) File path to save: /home/alex/mobile-data-service/public/09aaaceb-1f3f-4a56-a555-e4d60d3aca77.jpg
+2025-12-28 13:37:01,566 INFO  [org.acm.Ser.FileService] (executor-thread-4) Saving file to: /home/alex/mobile-data-service/public/09aaaceb-1f3f-4a56-a555-e4d60d3aca77.jpg
+2025-12-28 13:37:01,566 INFO  [org.acm.Ser.FileService] (executor-thread-4) Destination path object created: /home/alex/mobile-data-service/public/09aaaceb-1f3f-4a56-a555-e4d60d3aca77.jpg
+2025-12-28 13:37:01,566 INFO  [org.acm.Ser.FileService] (executor-thread-4) Uploaded file: /tmp/uploads/resteasy-reactive15120265870046476046upload
+2025-12-28 13:37:01,567 INFO  [org.acm.Ser.FileService] (executor-thread-4) File saved successfully!
+2025-12-28 13:37:01,567 INFO  [org.acm.Ser.FileService] (executor-thread-4) File exists after save: true
+2025-12-28 13:37:01,567 INFO  [org.acm.Ser.DeveloperService] (executor-thread-4) File processed, URL: 09aaaceb-1f3f-4a56-a555-e4d60d3aca77.jpg
+2025-12-28 13:37:01,567 INFO  [org.acm.Ser.DeveloperService] (executor-thread-4) Avatar updated successfully
+Sending message to session VkyTHKLAa_YKdJywB8ES-UODvuosct00h0RBA333: update
+Sending message to session jZLY4CVfTrEyG8WXZTi6VvXlq3AxL_TAQTuxCX9Q: update
+Sending message to session pVkiqpazLGJXk0PXmt9Xpizk7cdooMzVCuM2ZX3b: update
+2025-12-28 13:37:02,217 INFO  [org.acm.Con.DeveloperController] (executor-thread-2) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:37:02,219 INFO  [org.acm.Con.DeveloperController] (executor-thread-4) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:37:02,243 INFO  [org.acm.Con.DeveloperController] (executor-thread-4) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:37:02,257 INFO  [org.acm.Con.DeveloperController] (executor-thread-2) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:37:15,795 INFO  [org.acm.Con.DeveloperController] (executor-thread-2) here!!!
+2025-12-28 13:37:15,796 INFO  [org.acm.Ser.DeveloperService] (executor-thread-2) saveAvatar called for developer id: 5206
+2025-12-28 13:37:15,798 INFO  [org.acm.Ser.DeveloperService] (executor-thread-2) Developer found: diana
+2025-12-28 13:37:15,799 INFO  [org.acm.Ser.FileService] (executor-thread-2) Processing file: temp_avatar_1766921834186.jpg
+2025-12-28 13:37:15,799 INFO  [org.acm.Ser.FileService] (executor-thread-2) Upload directory: /home/alex/mobile-data-service/public/
+2025-12-28 13:37:15,799 INFO  [org.acm.Ser.FileService] (executor-thread-2) Upload directory already exists: /home/alex/mobile-data-service/public/
+2025-12-28 13:37:15,799 INFO  [org.acm.Ser.FileService] (executor-thread-2) Upload directory: /home/alex/mobile-data-service/public/
+2025-12-28 13:37:15,799 INFO  [org.acm.Ser.FileService] (executor-thread-2) File path to save: /home/alex/mobile-data-service/public/0bc8937d-e473-4500-bf28-99a438aa9659.jpg
+2025-12-28 13:37:15,800 INFO  [org.acm.Ser.FileService] (executor-thread-2) Saving file to: /home/alex/mobile-data-service/public/0bc8937d-e473-4500-bf28-99a438aa9659.jpg
+2025-12-28 13:37:15,800 INFO  [org.acm.Ser.FileService] (executor-thread-2) Destination path object created: /home/alex/mobile-data-service/public/0bc8937d-e473-4500-bf28-99a438aa9659.jpg
+2025-12-28 13:37:15,800 INFO  [org.acm.Ser.FileService] (executor-thread-2) Uploaded file: /tmp/uploads/resteasy-reactive728310405035443257upload
+2025-12-28 13:37:15,800 INFO  [org.acm.Ser.FileService] (executor-thread-2) File saved successfully!
+2025-12-28 13:37:15,801 INFO  [org.acm.Ser.FileService] (executor-thread-2) File exists after save: true
+2025-12-28 13:37:15,801 INFO  [org.acm.Ser.DeveloperService] (executor-thread-2) File processed, URL: 0bc8937d-e473-4500-bf28-99a438aa9659.jpg
+2025-12-28 13:37:15,801 INFO  [org.acm.Ser.DeveloperService] (executor-thread-2) Avatar updated successfully
+Sending message to session VkyTHKLAa_YKdJywB8ES-UODvuosct00h0RBA333: update
+Sending message to session jZLY4CVfTrEyG8WXZTi6VvXlq3AxL_TAQTuxCX9Q: update
+Sending message to session pVkiqpazLGJXk0PXmt9Xpizk7cdooMzVCuM2ZX3b: update
+2025-12-28 13:37:15,913 INFO  [org.acm.Con.DeveloperController] (executor-thread-4) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:37:15,925 INFO  [org.acm.Con.DeveloperController] (executor-thread-2) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:37:15,957 INFO  [org.acm.Con.DeveloperController] (executor-thread-2) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:37:15,958 INFO  [org.acm.Con.DeveloperController] (executor-thread-4) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:37:16,567 INFO  [org.acm.Con.DeveloperController] (executor-thread-4) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:37:37,922 INFO  [org.acm.Con.DeveloperController] (executor-thread-4) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:37:46,643 INFO  [org.acm.Con.DeveloperController] (executor-thread-4) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:38:16,701 INFO  [org.acm.Con.DeveloperController] (executor-thread-4) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:38:46,773 INFO  [org.acm.Con.DeveloperController] (executor-thread-4) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:39:16,819 INFO  [org.acm.Con.DeveloperController] (executor-thread-4) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:39:46,882 INFO  [org.acm.Con.DeveloperController] (executor-thread-4) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:40:16,931 INFO  [org.acm.Con.DeveloperController] (executor-thread-4) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:40:46,977 INFO  [org.acm.Con.DeveloperController] (executor-thread-4) Fetching developers: page=0, size=100, name=null, fullStack=null
+io.undertow.websockets.UndertowSession@7482cfb7
+io.undertow.websockets.UndertowSession@38ba715
+io.undertow.websockets.UndertowSession@5c5e6f5
+io.undertow.websockets.UndertowSession@34f7b353
+2025-12-28 13:41:06,574 INFO  [org.acm.Con.DeveloperController] (executor-thread-5) Fetching developers: page=0, size=100, name=null, fullStack=null
+io.undertow.websockets.UndertowSession@1db38c09
+2025-12-28 13:41:17,102 INFO  [org.acm.Con.DeveloperController] (executor-thread-5) Fetching developers: page=0, size=100, name=null, fullStack=null
+io.undertow.websockets.UndertowSession@2c4020f0
+2025-12-28 13:41:19,539 INFO  [org.acm.Con.DeveloperController] (executor-thread-5) Fetching developers: page=0, size=100, name=null, fullStack=null
+io.undertow.websockets.UndertowSession@2508c288
+2025-12-28 13:41:24,527 INFO  [org.acm.Con.DeveloperController] (executor-thread-5) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:41:47,217 INFO  [org.acm.Con.DeveloperController] (executor-thread-5) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:42:17,283 INFO  [org.acm.Con.DeveloperController] (executor-thread-5) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:42:47,384 INFO  [org.acm.Con.DeveloperController] (executor-thread-5) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:43:17,497 INFO  [org.acm.Con.DeveloperController] (executor-thread-5) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:43:47,592 INFO  [org.acm.Con.DeveloperController] (executor-thread-5) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:44:17,666 INFO  [org.acm.Con.DeveloperController] (executor-thread-5) Fetching developers: page=0, size=100, name=null, fullStack=null
+io.undertow.websockets.UndertowSession@53f11feb
+io.undertow.websockets.UndertowSession@4d480e0e
+io.undertow.websockets.UndertowSession@57de911a
+io.undertow.websockets.UndertowSession@5f5f02c7
+2025-12-28 13:45:24,071 INFO  [org.acm.Con.DeveloperController] (executor-thread-7) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:45:25,067 INFO  [org.acm.Con.DeveloperController] (executor-thread-7) Fetching developers: page=0, size=100, name=null, fullStack=null
+io.undertow.websockets.UndertowSession@2274062a
+io.undertow.websockets.UndertowSession@6cc66f52
+io.undertow.websockets.UndertowSession@2a94dc35
+io.undertow.websockets.UndertowSession@2da63e6c
+io.undertow.websockets.UndertowSession@ee14815
+2025-12-28 13:45:38,544 INFO  [org.acm.Con.DeveloperController] (executor-thread-7) Fetching developers: page=0, size=100, name=null, fullStack=null
+io.undertow.websockets.UndertowSession@19732ebd
+2025-12-28 13:45:54,281 INFO  [org.acm.Con.DeveloperController] (executor-thread-7) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:46:24,403 INFO  [org.acm.Con.DeveloperController] (executor-thread-7) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:46:54,451 INFO  [org.acm.Con.DeveloperController] (executor-thread-7) Fetching developers: page=0, size=100, name=null, fullStack=null
+io.undertow.websockets.UndertowSession@58d684e3
+io.undertow.websockets.UndertowSession@19b9d72
+io.undertow.websockets.UndertowSession@4abc41f5
+io.undertow.websockets.UndertowSession@7dfb47ad
+2025-12-28 13:47:08,964 INFO  [org.acm.Con.DeveloperController] (executor-thread-7) Fetching developers: page=0, size=100, name=null, fullStack=null
+io.undertow.websockets.UndertowSession@777c5796
+io.undertow.websockets.UndertowSession@fdc79cb
+2025-12-28 13:47:24,534 INFO  [org.acm.Con.DeveloperController] (executor-thread-7) Fetching developers: page=0, size=100, name=null, fullStack=null
+io.undertow.websockets.UndertowSession@78e6390f
+io.undertow.websockets.UndertowSession@55ed9c9
+io.undertow.websockets.UndertowSession@549e7006
+io.undertow.websockets.UndertowSession@44dd08a4
+2025-12-28 13:47:38,155 INFO  [org.acm.Con.DeveloperController] (executor-thread-7) Fetching developers: page=0, size=100, name=null, fullStack=null
+io.undertow.websockets.UndertowSession@33ea6f1e
+2025-12-28 13:47:54,609 INFO  [org.acm.Con.DeveloperController] (executor-thread-7) Fetching developers: page=0, size=100, name=null, fullStack=null
+io.undertow.websockets.UndertowSession@52617669
+io.undertow.websockets.UndertowSession@4aee7d0d
+io.undertow.websockets.UndertowSession@66b46ed8
+io.undertow.websockets.UndertowSession@725aec09
+2025-12-28 13:48:16,655 INFO  [org.acm.Con.DeveloperController] (executor-thread-8) Fetching developers: page=0, size=100, name=null, fullStack=null
+io.undertow.websockets.UndertowSession@16af2c72
+2025-12-28 13:48:24,695 INFO  [org.acm.Con.DeveloperController] (executor-thread-7) Fetching developers: page=0, size=100, name=null, fullStack=null
+io.undertow.websockets.UndertowSession@6d6312ef
+io.undertow.websockets.UndertowSession@57d50de
+io.undertow.websockets.UndertowSession@5e99a576
+io.undertow.websockets.UndertowSession@5b967772
+2025-12-28 13:48:42,411 INFO  [org.acm.Con.DeveloperController] (executor-thread-7) Fetching developers: page=0, size=100, name=null, fullStack=null
+io.undertow.websockets.UndertowSession@2be22c0e
+io.undertow.websockets.UndertowSession@67b65920
+2025-12-28 13:48:54,795 INFO  [org.acm.Con.DeveloperController] (executor-thread-7) Fetching developers: page=0, size=100, name=null, fullStack=null
+Sending message to session YdZ7M9kMwc0IoxLePGJAbsEB-vrUb130jq0_NMAA: update
+Sending message to session L_vsyPQQVqk0MTC6_hChDDxycaMjMsXB9Bia99bg: update
+Sending message to session gU57N18nng3kd2gTLJSlncGtMS_y4OF73pvjKj91: update
+Sending message to session DzQzIuOqsGZ40ejOdoKVK4zGpcAwmeYgUqjtlhnO: update
+2025-12-28 13:49:14,118 INFO  [org.acm.Con.DeveloperController] (executor-thread-7) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:49:14,160 INFO  [org.acm.Con.DeveloperController] (executor-thread-7) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:49:14,182 INFO  [org.acm.Con.DeveloperController] (executor-thread-7) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:49:14,192 INFO  [org.acm.Con.DeveloperController] (executor-thread-9) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:49:14,236 INFO  [org.acm.Con.DeveloperController] (executor-thread-9) Fetching developers: page=0, size=100, name=null, fullStack=null
+2025-12-28 13:49:24,912 INFO  [org.acm.Con.DeveloperController] (executor-thread-9) Fetching developers: page=0, size=100, name=null, fullStack=null

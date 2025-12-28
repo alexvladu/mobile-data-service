@@ -9,6 +9,7 @@ import org.acme.Models.Developer;
 import org.acme.Models.User;
 import org.acme.Repository.DeveloperRepository;
 import org.eclipse.microprofile.jwt.JsonWebToken;
+import org.jboss.logging.Logger;
 import org.jboss.resteasy.reactive.multipart.FileUpload;
 
 import io.quarkus.panache.common.Page;
@@ -20,6 +21,7 @@ import jakarta.transaction.Transactional;
 @ApplicationScoped
 public class DeveloperService {
     
+    private static final Logger LOG = Logger.getLogger(DeveloperService.class);
 
     @Inject
     JsonWebToken jwt;
@@ -92,10 +94,11 @@ public class DeveloperService {
     }
 
     @Transactional
-    public void addDeveloper(DeveloperDTO developer){
+    public Developer addDeveloper(DeveloperDTO developer){
         User user = userService.findByUsername(jwt.getName());
         Developer newDeveloper = new Developer(developer.getName(), developer.getAge(), developer.getEndDate(), developer.getFullStack(), null, null, null, user);
         developerRepository.persist(newDeveloper);
+        return newDeveloper;
     }
 
     @Transactional
@@ -126,8 +129,19 @@ public class DeveloperService {
 
     @Transactional
     public void saveAvatar(FileUpload file, Long id) throws Exception {
-        Developer developer = getDeveloperById(id);
-        String photoURL = fileService.processAndSaveFile(file);
-        this.developerRepository.updateURL(developer, photoURL);
+        LOG.info("saveAvatar called for developer id: " + id);
+        try {
+            Developer developer = getDeveloperById(id);
+            LOG.info("Developer found: " + developer.getName());
+            
+            String photoURL = fileService.processAndSaveFile(file);
+            LOG.info("File processed, URL: " + photoURL);
+            
+            this.developerRepository.updateURL(developer, photoURL);
+            LOG.info("Avatar updated successfully");
+        } catch (Exception e) {
+            LOG.error("Error saving avatar: " + e.getMessage(), e);
+            throw e;
+        }
     }
 }

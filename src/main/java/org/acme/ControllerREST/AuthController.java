@@ -41,6 +41,7 @@ public class AuthController {
     @POST
     @Path("/login")
     public Response login(AuthRequest req) {
+        System.out.println(req.username + " " + req.password);
         String token = authService.login(req.username, req.password);
         return Response.ok().entity("{\"token\": \"" + token + "\"}").build();
     }

@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.UUID;
 
+import org.jboss.logging.Logger;
 import org.jboss.resteasy.reactive.multipart.FileUpload;
 
 import jakarta.enterprise.context.ApplicationScoped;
@@ -16,16 +17,20 @@ import jakarta.transaction.Transactional;
 @ApplicationScoped
 public class FileService {
 
+    private static final Logger LOG = Logger.getLogger(FileService.class);
+
     @Transactional
     public String processAndSaveFile(FileUpload file) throws IOException {
 
+        LOG.info("Processing file: " + file.fileName());
         String originalFileName = file.fileName();
         String fileExtension = getFileExtension(originalFileName);
         String uniqueFileName = generateUniqueFileName(fileExtension);
 
         createUploadDirectory();
         
-        String filePath = UPLOAD_DIR + uniqueFileName;
+        String filePath = getUploadDir() + uniqueFileName;
+        LOG.info("File path to save: " + filePath);
         saveFile(file, filePath);
         return uniqueFileName;
 
@@ -44,21 +49,41 @@ public class FileService {
         return UUID.randomUUID().toString() + "." + extension;
     }
 
-    private static final String UPLOAD_DIR = "src/main/resources/META-INF/resources/public/";
+    private String getUploadDir() {
+        String dir = "/home/alex/mobile-data-service/public/";
+        LOG.info("Upload directory: " + dir);
+        return dir;
+    }
 
     private void createUploadDirectory() {
-        File uploadDir = new File(UPLOAD_DIR);
-        if (!uploadDir.exists()) {
-            boolean created = uploadDir.mkdirs();
+        String uploadDir = getUploadDir();
+        File uploadDirFile = new File(uploadDir);
+        if (!uploadDirFile.exists()) {
+            boolean created = uploadDirFile.mkdirs();
+            LOG.info("Directory creation result: " + created + " for " + uploadDir);
             if (!created) {
-                System.err.println("Failed to create upload directory: " + UPLOAD_DIR);
+                LOG.error("Failed to create upload directory: " + uploadDir);
             }
+        } else {
+            LOG.info("Upload directory already exists: " + uploadDir);
         }
     }
 
 
     private void saveFile(FileUpload file, String destinationPath) throws IOException {
-        Path destination = Paths.get(destinationPath);
-        Files.copy(file.uploadedFile(), destination, StandardCopyOption.REPLACE_EXISTING);
+        LOG.info("Saving file to: " + destinationPath);
+        try {
+            Path destination = Paths.get(destinationPath);
+            LOG.info("Destination path object created: " + destination);
+            LOG.info("Uploaded file: " + file.uploadedFile());
+            
+            Files.copy(file.uploadedFile(), destination, StandardCopyOption.REPLACE_EXISTING);
+            
+            LOG.info("File saved successfully!");
+            LOG.info("File exists after save: " + Files.exists(destination));
+        } catch (Exception e) {
+            LOG.error("Error saving file: " + e.getMessage(), e);
+            throw e;
+        }
     }
 }
