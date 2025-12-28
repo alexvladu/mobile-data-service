@@ -23,18 +23,25 @@ public class AuthController {
         public String password;
     }
 
+    public class AuthResponse {
+        public String token;
+
+        public AuthResponse(String token) {
+            this.token = token;
+        }
+    }
+
     @POST
     @Path("/register")
     public Response register(AuthRequest req) {
-        authService.register(req.username, req.password, "User");
-        return Response.status(Response.Status.CREATED)
-                .entity(req.username)
-                .build();
+        String token=authService.register(req.username, req.password, "User");
+        return Response.ok(new AuthResponse(token)).build();
     }
 
     @POST
     @Path("/login")
     public Response login(AuthRequest req) {
+        System.out.println(req.username + " " + req.password);
         String token = authService.login(req.username, req.password);
         return Response.ok().entity("{\"token\": \"" + token + "\"}").build();
     }

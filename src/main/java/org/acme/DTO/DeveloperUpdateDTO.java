@@ -1,41 +1,26 @@
-package org.acme.Models;
+package org.acme.DTO;
 
 import java.math.BigDecimal;
 import java.sql.Date;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-
-@Entity
-public class Developer extends PanacheEntity{
-    private String name;
-    private Long age;
-    private Date endDate;
-    private Boolean fullStack;
-    private String photoURL;
-    private BigDecimal lat;
-    private BigDecimal lng;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
-
-    public Developer(){
-        
-    }
-
-    public Developer(String name, Long age, Date endDate, Boolean fullStack, String photoURL, BigDecimal lat, BigDecimal lng, User user){
+public class DeveloperUpdateDTO {
+    public String name;
+    public Long age;
+    public Date endDate;
+    public Boolean fullStack;
+    BigDecimal lat;
+    BigDecimal lng;
+    public DeveloperUpdateDTO(String name, Long age, Date endDate, Boolean fullStack, BigDecimal lat, BigDecimal lng){
         this.name = name;
         this.age = age;
         this.endDate = endDate;
         this.fullStack = fullStack;
-        this.photoURL = photoURL;
         this.lat = lat;
         this.lng = lng;
-        this.user = user;
-    }   
+    }
+    public DeveloperUpdateDTO(){
+
+    }
     public String getName() {
         return name;
     }
@@ -60,12 +45,6 @@ public class Developer extends PanacheEntity{
     public void setFullStack(Boolean fullStack) {
         this.fullStack = fullStack;
     }
-    public String getPhotoURL() {
-        return photoURL;
-    }
-    public void setPhotoURL(String photoURL) {
-        this.photoURL = photoURL;
-    }
     public BigDecimal getLat() {
         return lat;
     }
@@ -78,10 +57,13 @@ public class Developer extends PanacheEntity{
     public void setLng(BigDecimal lng) {
         this.lng = lng;
     }
-    public User getUser() {
-        return user;
-    }
-    public void setUser(User user) {
-        this.user = user;   
+    @Override
+    public String toString() {
+        return "DeveloperDTO{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", endDate='" + endDate + '\'' +
+                ", fullStack=" + fullStack +
+                '}';
     }
 }

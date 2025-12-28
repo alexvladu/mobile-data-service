@@ -17,6 +17,7 @@ public class NotificationWebSocket {
 
     @OnOpen
     public void onOpen(Session session) {
+        System.out.println(session);
         sessions.add(session);
     }
 

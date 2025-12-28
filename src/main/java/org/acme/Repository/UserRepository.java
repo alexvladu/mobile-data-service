@@ -13,4 +13,9 @@ public class UserRepository {
     public void save(User user) {
         user.persist();
     }
+
+    public User updateURL(User user, String photoURL) {
+        user.photoURL = photoURL;
+        return user;
+    }
 }

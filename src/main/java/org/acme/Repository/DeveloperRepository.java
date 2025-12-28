@@ -7,5 +7,9 @@ import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 public class DeveloperRepository implements PanacheRepository<Developer> {
-    
+
+    public Developer updateURL(Developer developer, String photoURL) {
+        developer.setPhotoURL(photoURL);
+        return developer;
+    }
 }
